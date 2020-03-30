@@ -1,5 +1,6 @@
 defmodule PostgrexPubsub.BroadcastMigration do
   @moduledoc """
+  A macro for applying mutation broadcast triggers to tables
   """
   defmacro __using__(opts) do
     table_name =
@@ -9,6 +10,7 @@ defmodule PostgrexPubsub.BroadcastMigration do
 
     quote do
       use Ecto.Migration
+
       def up do
         PostgrexPubsub.broadcast_mutation_for_table(unquote(table_name))
       end

@@ -4,7 +4,7 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+If [available in Hex](https://hex.pm/postgrex_pubsub), the package can be installed
 by adding `postgrex_pubsub` to your list of dependencies in `mix.exs`:
 
 ```elixir

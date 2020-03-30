@@ -23,7 +23,7 @@ defmodule PostgrexPubsub.MixProject do
     [
       {:jason, "~> 1.0"},
       {:postgrex, "~> 0.15.3"},
-      {:ecto_sql, "~> 3.0"},
+      {:ecto_sql, "~> 3.0"}
     ]
   end
 end

@@ -3,6 +3,7 @@ defmodule PostgrexPubsub do
   Documentation for `PostgrexPubsub`.
   """
 
+  # TODO make this configurable
   @default_channel "pg_mutations"
 
   def get_trigger_name(table_name), do: "notify_#{table_name}_changes_trigger"
@@ -57,6 +58,6 @@ defmodule PostgrexPubsub do
 
   def delete_broadcast_trigger_for_table(table_name) do
     trigger_name = get_trigger_name(table_name)
-    Ecto.Migration.execute "DROP TRIGGER #{trigger_name}"
+    Ecto.Migration.execute("DROP TRIGGER #{trigger_name}")
   end
 end
