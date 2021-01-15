@@ -41,7 +41,7 @@ defmodule PostgrexPubsub.Listener do
       When the GenServer starts subscribe to the given topics
       """
       def init(channel) do
-        Logger.debug("Starting #{__MODULE__} with channel subscription: #{channel}")
+        Logger.debug("Starting2 #{__MODULE__} with channel subscription: #{channel}")
         pg_config = unquote(repo_module).config()
         {:ok, pid} = Postgrex.Notifications.start_link(pg_config)
         {:ok, ref} = Postgrex.Notifications.listen(pid, channel)
@@ -58,8 +58,9 @@ defmodule PostgrexPubsub.Listener do
 
         {:noreply, :event_handled}
       catch
-        _, error ->
-          Logger.error("Listener: #{__MODULE__} failed with error: #{inspect(error)}")
+        type, error ->
+          exception = Exception.format(type, error, __STACKTRACE__)
+          Logger.error("Listener2: #{__MODULE__} failed with error: #{exception}")
           {:noreply, :event_error}
       end
 
