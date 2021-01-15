@@ -10,7 +10,7 @@ by adding `postgrex_pubsub` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:postgrex_pubsub, "~> 0.1.0"}
+    {:postgrex_pubsub, "~> 0.1.1"}
   ]
 end
 ```
