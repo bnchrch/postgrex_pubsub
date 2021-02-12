@@ -12,11 +12,11 @@ defmodule PostgrexPubsub.BroadcastIdMigration do
       use Ecto.Migration
 
       def up do
-        PostgrexPubsub.PayloadStrategy.broadcast_mutation_for_table(unquote(table_name))
+        PostgrexPubsub.IdStrategy.broadcast_mutation_for_table(unquote(table_name))
       end
 
       def down do
-        PostgrexPubsub.PayloadStrategy.delete_broadcast_trigger_for_table(unquote(table_name))
+        PostgrexPubsub.IdStrategy.delete_broadcast_trigger_for_table(unquote(table_name))
       end
     end
   end
