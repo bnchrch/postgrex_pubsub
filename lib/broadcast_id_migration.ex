@@ -1,4 +1,4 @@
-defmodule PostgrexPubsub.BroadcastMigration do
+defmodule PostgrexPubsub.BroadcastIdMigration do
   @moduledoc """
   A macro for applying mutation broadcast triggers to tables
   """
@@ -12,11 +12,11 @@ defmodule PostgrexPubsub.BroadcastMigration do
       use Ecto.Migration
 
       def up do
-        PostgrexPubsub.broadcast_mutation_for_table(unquote(table_name))
+        PostgrexPubsub.PayloadStrategy.broadcast_mutation_for_table(unquote(table_name))
       end
 
       def down do
-        PostgrexPubsub.delete_broadcast_trigger_for_table(unquote(table_name))
+        PostgrexPubsub.PayloadStrategy.delete_broadcast_trigger_for_table(unquote(table_name))
       end
     end
   end
